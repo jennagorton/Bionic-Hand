@@ -1,4 +1,4 @@
-<h1 align="center">Ball Balancing Robot</h1>
+<h1 align="center">Bionic Hnad</h1>
 <p align="center">Jenna Gorton, July 2025</p>
 
 <p align="center">
