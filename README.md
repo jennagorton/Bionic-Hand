@@ -5,7 +5,7 @@
   <img src="https://github.com/user-attachments/assets/f601ad8c-18e4-4f91-ac03-f83e57e84e80"
        alt="workingTest" width="420">
 </p>
-<p align="center">Figure 1: Opening and closing with button input</p>
+<p align="center">Opening and closing fist with button input</p>
 
 About
 ==
@@ -17,12 +17,51 @@ The design incorporates compliant fingers, palm-integrated motors, a capacitive 
 - To introduce compliance in the fingers, I fabricated the joints using TPU, while the rest of the structure was printed in PLA. This material combination allowed the fingers to bend under applied force and return to their original position, providing the strength of a rigid finger with the flexibility of a compliant one.
 - By integrating the servos within the palm, the hand functions independently without requiring an attached arm. This compact, self-contained design ensures compatibility with various arm attachments—whether used as a prosthetic or as a component of a larger robotic system.
 
-Programming
-=
-This is an Arduino-based project and implemented built-in libraries
-- Can handle single finger movement and simultaneoulsy whole hand configurations.
+Programming  
+==
 
+The bionic hand is controlled using an **Adafruit 16-Channel PWM Servo Driver** (PCA9685) and an Arduino. Each finger is assigned to a dedicated servo motor, which the driver addresses through I²C communication. The servos are configured with defined pulse-width ranges to open and close the fingers smoothly.  
 
+### Key Features  
+- **Finger Control**  
+  The top row of capacitive touch sensors each corresponds to a specific finger. When touched, the associated servo toggles between open and closed positions, where the servo controls the closure, and the compliance pulls the finger open.
 
+- **Predefined Gestures**  
+  The second row of touch sensors allows for more complex motions:  
+  - **Close Fist** – Sequentially closes all five fingers.  
+  - **Open Hand** – Sequentially opens all five fingers.  
+  - **Peace Sign** – Closes the thumb, ring, and pinky while opening the index and middle fingers.  
 
+- **State Tracking**  
+  Finger positions are tracked with global variables (`indexPos`, `thumbPos`, etc.) to prevent conflicting commands and allow toggling.  
+
+- **Smooth Motion**  
+  Servo positions are updated incrementally with small delays to create natural, fluid finger movements instead of abrupt snapping.  
+
+### Example: Peace Sign Gesture  
+Below is the function that creates a **peace sign** when the corresponding touch sensor is pressed:  
+
+```cpp
+if (c5r1 == 1) { // Peace sign gesture
+  for (uint16_t pulselen = SERVOMAX, pulseopp = SERVOMIN; 
+       pulselen > SERVOMIN && pulseopp < SERVOMAX; 
+       pulselen--, pulseopp++) {
+    // Closing thumb, ring, pinky
+    if (thumbPos == 0) pwm.setPWM(THUMB, 0, pulselen);
+    if (ringPos == 0)  pwm.setPWM(RING, 0, pulselen);
+    if (pinkyPos == 0) pwm.setPWM(PINKY, 0, pulselen);
+
+    // Opening index, middle
+    if (middlePos == 1) pwm.setPWM(MIDDLE, 0, pulseopp);
+    if (indexPos == 1)  pwm.setPWM(INDEX, 0, pulseopp);
+
+    delay(3); // Smooth motion
+  }
+  indexPos = middlePos = 0; // Open
+  ringPos = pinkyPos = thumbPos = 1; // Closed
+}
+
+```
+Demo
+==
 
