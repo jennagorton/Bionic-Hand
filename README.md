@@ -11,6 +11,11 @@ About
 ==
 In this project, I designed and built a bionic hand controlled by user input. I undertook this challenge to enhance my skills in CAD design, programming, and electronics. While only using my laptop, 3D printer, and Arduino, I was able to bring this idea to life. The primary goals were to achieve realistic hand motion and enable both independent and simultaneous control of individual fingers, while staying within a low budget.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f50e57e2-b567-4774-af4b-3b592ba4cc88"
+       alt="workingTest" width="420">
+</p>
+
 Design
 ==
 The design incorporates compliant fingers, palm-integrated motors, a capacitive touch interface, and a cable-concealing stand.
