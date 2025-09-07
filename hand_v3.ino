@@ -179,7 +179,7 @@ void loop() {
       indexPos = middlePos = ringPos = pinkyPos = thumbPos = 0;
     }
 
-    if (c5r1 == 1){ //peace sign
+    if (c4r2 == 1){ //peace sign
       for (uint16_t pulselen = SERVOMAX, pulseopp = SERVOMIN; 
         pulselen > SERVOMIN && pulseopp < SERVOMAX; 
         pulselen--, pulseopp++) {
