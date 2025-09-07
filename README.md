@@ -42,7 +42,7 @@ The bionic hand is controlled using an **Adafruit 16-Channel PWM Servo Driver** 
 Below is the function that creates a **peace sign** when the corresponding touch sensor is pressed:  
 
 ```cpp
-if (c5r1 == 1) { // Peace sign gesture
+if (c4r2 == 1) { // Peace sign gesture
   for (uint16_t pulselen = SERVOMAX, pulseopp = SERVOMIN; 
        pulselen > SERVOMIN && pulseopp < SERVOMAX; 
        pulselen--, pulseopp++) {
@@ -64,4 +64,19 @@ if (c5r1 == 1) { // Peace sign gesture
 ```
 Demo
 ==
+The fingers can be configured to create any hand gesture 
+
+| <div align="center">![GIF 1](https://github.com/user-attachments/assets/6bfcbe33-06f2-4777-a149-9dc311425ca3)<br></div> | <div align="center">![GIF 2](https://github.com/user-attachments/assets/d395dfa5-f051-4d73-8600-d89baa14dd21)<br></div> |
+|---|---|
+| <div align="center">![GIF 3](https://github.com/user-attachments/assets/6c6e3028-d866-42da-94da-07117bd4202b)<br></div> | <div align="center">![GIF 4](https://github.com/user-attachments/assets/4df38f67-b705-4f12-80ea-dc7b00007f68)<br></div> |
+
+
+
+
+
+
+
+
+
+
 
