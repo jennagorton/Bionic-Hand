@@ -1,4 +1,4 @@
-<h1 align="center">Bionic Hnad</h1>
+<h1 align="center">Bionic Hand</h1>
 <p align="center">Jenna Gorton, July 2025</p>
 
 <p align="center">
@@ -13,7 +13,15 @@ In this project, I designed and built a bionic hand controlled by user input. I 
 
 Design
 ==
-The design I created consists of compliant fingers, motors built into the palm, a capacitive touch interface, and a stand to conceal all of the cables. To add compliance in the fingers, I created the joints out of TPU and the rest of the project in PLA. When force was applied, the fingers were able to bend and then return to their original position. This design allowed for the strength of a rigid finger, but the movement of a flexible one. 
+The design incorporates compliant fingers, palm-integrated motors, a capacitive touch interface, and a cable-concealing stand.
+- To introduce compliance in the fingers, I fabricated the joints using TPU, while the rest of the structure was printed in PLA. This material combination allowed the fingers to bend under applied force and return to their original position, providing the strength of a rigid finger with the flexibility of a compliant one.
+- By integrating the servos within the palm, the hand functions independently without requiring an attached arm. This compact, self-contained design ensures compatibility with various arm attachments—whether used as a prosthetic or as a component of a larger robotic system.
+
+Programming
+=
+This is an Arduino-based project and implemented built-in libraries
+- Can handle single finger movement and simultaneoulsy whole hand configurations.
+
 
 
 
